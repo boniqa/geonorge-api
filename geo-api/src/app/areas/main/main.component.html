@@ -1,1 +1,29 @@
-<p>main works!</p>
+<div class="main-header">
+    <h1>geo api</h1>
+</div>
+<div class="main-body">
+    <div class="main-searching-box">
+
+    </div>
+    <div class="main-table-display">
+        <table>
+            <thead>
+                <th>id</th>
+                <th>name</th>
+                <th>valid to</th>
+                <th>valid from</th>
+                <th>status</th>
+            </thead>
+    
+            <tbody>
+                <tr *ngFor="let item of items; index as ind">
+                    <td>{{item.codevalue}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.ValidTo | date }}</td>
+                    <td>{{item.ValidFrom | date }}</td>
+                    <td>{{ getStatus(item.status) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
