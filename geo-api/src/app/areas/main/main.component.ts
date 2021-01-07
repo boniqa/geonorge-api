@@ -10,6 +10,8 @@ export class MainComponent implements OnInit {
 
   loaded: boolean;
   items: any;
+  searchText: string = '';
+  switch: string = 'all';
 
   constructor(private geoApiService: GeoApiService) { }
 
@@ -17,13 +19,16 @@ export class MainComponent implements OnInit {
     this.loaded = false;
     this.geoApiService.getData().subscribe((result)=> {
       this.items = result.containeditems;
-      console.log(this.items);
       this.loaded = true;
     })
   }
 
   getStatus(status){
-    return ( status === 'Gyldig' ? 'valid' : 'retired');
+    return ( status === 'Gyldig' ? 'valid' : 'retired' );
+  }
+
+  changeValue(e){
+    this.switch = e.target.value;
   }
 
 }
